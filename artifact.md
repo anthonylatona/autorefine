@@ -96,7 +96,7 @@ A weighted average of normalized signals. Each signal is normalized to 0-100 bef
 4. Cold outreach to CS leaders on LinkedIn
 
 ### Pricing Strategy
-Start low to get customers, raise prices later.
+Pricing set at 80% of enterprise alternatives (Gainsight starts at $1,500/month) to capture mid-market customers. Target customer acquisition cost recovery within 6 months at current pricing. Price increases planned once we achieve 100+ customers and can demonstrate proven ROI metrics.
 
 ---
 
