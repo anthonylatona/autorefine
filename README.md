@@ -1,4 +1,4 @@
-# autoloop
+# autorefine
 
 A self-improving document optimizer inspired by Karpathy's autoresearch.
 No GPU required. Runs entirely via the Anthropic API.
@@ -77,11 +77,3 @@ To use your own document:
 4. Run the loop
 
 ---
-
-## Cost Estimate
-
-Each iteration makes 2 API calls (one agent, one judge).
-At roughly 2000-3000 tokens per call with claude-sonnet:
-- ~$0.01-0.02 per iteration
-- 20 iterations ≈ $0.20-0.40
-- 50 iterations ≈ $0.50-1.00
