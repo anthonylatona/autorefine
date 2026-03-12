@@ -80,10 +80,13 @@ Annual discount: 20% off.
 - Hosting: AWS
 
 ### Data Pipeline
-Integrations sync on a schedule. Usage data comes in via webhooks where available, polling otherwise. Scores are recalculated nightly.
+Integrations sync every 4 hours via scheduled jobs. Usage data comes in via webhooks where available (Segment, Mixpanel), polling every 2 hours otherwise. API rate limits handled with exponential backoff. Customer data encrypted at rest (AES-256) and in transit (TLS 1.3). Scores are recalculated nightly at 2 AM UTC.
 
 ### Score Calculation
-A weighted average of normalized signals. Each signal is normalized to 0-100 before weighting. The final score is the weighted sum.
+A weighted average of normalized signals. Each signal is normalized to 0-100 before weighting using min-max scaling with 90-day rolling windows. The final score is the weighted sum, with missing signals marked as neutral (50) rather than penalized.
+
+### Scalability Constraints
+Current architecture supports up to 1,000 customers per instance with 50,000 total accounts. Database partitioned by customer_id. Integration failures retry 3 times with dead letter queue for manual review. 99.5% uptime SLA backed by AWS multi-AZ deployment.
 
 ---
 
